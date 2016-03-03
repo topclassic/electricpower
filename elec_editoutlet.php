@@ -1,5 +1,4 @@
 <?php
-
 	if($_POST['btnSubmit'] == "Update"){
         $outlet_id = $_GET['id'];
         $outlet_name = $_POST['txtOutlet_name'];
