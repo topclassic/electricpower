@@ -5,10 +5,10 @@ if(isset($_GET['format']) && $_GET['format'] == "json")
 	$sql="";
 	if(isset($_GET['id'])){
 		$id=$_GET['id'];
-		$sql = "SELECT electricpower.outlet_id, date_time, watt, unit FROM electricpower, electricpower.electricdata WHERE electricpower.outlet_id = $id";
+		$sql = "SELECT electricdata.outlet_id, date_time, watt, unit FROM electricpower, electricpower.electricdata WHERE electricdata.outlet_id = $id";
 	}
 	else{
-		$sql = "SELECT electricpower.outlet_id, date_time, watt, unit  FROM electricpower, electricpower.electricdata";
+		$sql = "SELECT electricdata.outlet_id, date_time, watt, unit FROM electricpower, electricpower.electricdata";
 	}
 
 	include_once("elec_connection.php");
@@ -25,10 +25,10 @@ else
 	$sql="";
 	if(isset($_GET['id'])){
 		$id=$_GET['id'];
-		$sql = "SELECT * FROM electricpower.outlet_id, date_time, watt, unit  WHERE electricpower.outlet_id = $id";
+		$sql = "SELECT electricdata.outlet_id, date_time, watt, unit FROM electricpower, electricpower.electricdata WHERE electricdata.outlet_id = $id";
 	}
 	else{
-		$sql = "SELECT * FROM electricpower.outlet_id, date_time, watt, unit ";
+		$sql = "SELECT electricdata.outlet_id, date_time, watt, unit FROM electricpower, electricpower.electricdata";
 	}
 
 	include_once("elec_connection.php");
